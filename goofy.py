@@ -1,1 +1,0 @@
-print ("I'm not going to watch Smallville during my class time, after")
