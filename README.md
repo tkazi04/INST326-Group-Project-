@@ -11,7 +11,8 @@
 <br> Stores Important Task Information such as:
 <br> 1: Title – the name of the task
 <br> 2: due_date – stored as a string in 'MM-DD-YYYY' format
-<br> description – an optional summary of the task
-<br> completed – whether the task is done or not
+<br> 3: description – an optional summary of the task
+<br> 4: completed – whether the task is done or not
+
 
 
