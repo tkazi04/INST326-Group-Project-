@@ -14,5 +14,10 @@
 <br> 3: description – an optional summary of the task
 <br> 4: completed – whether the task is done or not
 
+<br> Provides methods to update task status:
+<br> mark_complete() – marks a task as finished
+<br> mark_incomplete() – marks it as not finished
+<br> toggle_complete() – flips between complete/incomplete
+
 
 
