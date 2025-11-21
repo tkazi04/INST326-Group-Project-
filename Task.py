@@ -9,19 +9,17 @@ class Task:
         completed: Whether the task has been completed.
     """
 
-    def __init__(self, title, due_date, description="", completed=False):
+    def __init__(self, title, due_date, completed=False):
         """
         Initialize a new Task with information.
-
-        Args:
             title: The title of the task.
             due_date: Due date in 'MM-DD-YYYY' format.
-            description: Optional description of the task.
             completed: Initial completion status (default is False).
         """
+        # Validation
+        if not isinstance(title, str) or title.strip() == "":
         self.title = title
         self.due_date = due_date
-        self.description = description
         self.completed = completed
 
     def mark_complete(self):
