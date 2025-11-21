@@ -19,7 +19,7 @@ class Task:
             due_date: Due date in 'MM-DD-YYYY' format.
             completed: Initial completion status (default is False).
         """
-        # Validation 
+        # Validation 
         if not isinstance(title, str) or title.strip() == "":
             raise ValueError("Task title cannot be empty.")
         
@@ -31,11 +31,13 @@ class Task:
                 raise ValueError("Due date must be in MM-DD-YR format.")
         elif not isinstance(due_date, datetime):
             raise TypeError("due_date must be a datatime object or in MM-DD-YR string.")
+        
         self.id = str(uuid.uuid4())
         self.title = title
         self.due_date = due_date
         self.completed = completed
 
+    # Core Behaviors 
     def mark_complete(self):
         """Mark this task as completed."""
         self.completed = True
@@ -44,6 +46,7 @@ class Task:
         """Mark this task as not completed."""
         self.completed = False
 
+    # Editing Methods
     def toggle_complete(self):
         """Flip the completion status of the task."""
         self.completed = not self.completed
