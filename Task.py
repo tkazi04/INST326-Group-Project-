@@ -22,10 +22,6 @@ class Task:
         # Validation 
         if not isinstance(title, str) or title.strip() == "":
             raise ValueError("Task title cannot be empty.")
-        self.id = str(uuid.uuid4())
-        self.title = title
-        self.due_date = due_date
-        self.completed = completed
         
         # Convert Due_Date to datetime if string is provided
         if isinstance(due_date,str):
@@ -35,6 +31,10 @@ class Task:
                 raise ValueError("Due date must be in MM-DD-YR format.")
         elif not isinstance(due_date, datetime):
             raise TypeError("due_date must be a datatime object or in MM-DD-YR string.")
+        self.id = str(uuid.uuid4())
+        self.title = title
+        self.due_date = due_date
+        self.completed = completed
 
     def mark_complete(self):
         """Mark this task as completed."""
