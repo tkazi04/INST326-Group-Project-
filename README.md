@@ -1,5 +1,5 @@
 # INST326-Group-Project-
-<br> Project: Campus Tracker
+<br> Project: Campus Track Organizer 
 
 <br> Description: 
 <br> Our Project is a program that is designed to help students track and manage their academic needs. 
