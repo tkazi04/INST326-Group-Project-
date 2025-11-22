@@ -38,7 +38,7 @@ def main():
 
         if choice == "1":
             title = input("Task title: ")
-            due_date = input("Due date (YYYY-MM-DD): ")
+            due_date = input("Due date (MM-DD-YYYY): ")
             task = tm.add_task(title, due_date)
             print(f"Task added with ID: {task.id}")
 
@@ -56,7 +56,7 @@ def main():
         elif choice == "4":
             task_id = input("Enter Task ID to edit: ")
             new_title = input("New title (leave blank to skip): ")
-            new_date = input("New due date YYYY-MM-DD (leave blank to skip): ")
+            new_date = input("New due date MM-DD-YYYY (leave blank to skip): ")
             status = input("Mark completed? (y/n/leave blank): ")
 
             completed_flag = None
