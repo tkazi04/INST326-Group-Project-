@@ -3,111 +3,107 @@ from datetime import datetime
 
 class Task:
     """
-    Represents a single task and assignment in the Campus Task Organizer.
-
-    Attributes:
-        title: The title of the task.
-        due_date: The due date in 'MM-DD-YYYY' format.
-        description: A short description of the task.
-        completed: Whether the task has been completed.
+    Represents a single task with validation, unique IDs, and
+    improved formatting. Suitable for use with the upgraded TaskManager.
     """
 
     def __init__(self, title, due_date, completed=False):
+        """Initialize a new Task.
+
+        Args:
+            title (str): The title of the task.
+            due_date (str or datetime): The due date in YYYY-MM-DD format or a datetime object.
+            completed (bool): Whether the task is already completed.
+
+        Raises:
+            ValueError: If the title is empty or due_date is an invalid string.
+            TypeError: If due_date is not a string or datetime object.
         """
-        Initialize a new Task with information.
-            title: The title of the task.
-            due_date: Due date in 'MM-DD-YYYY' format.
-            completed: Initial completion status (default is False).
-        """
-        # Validation 
         if not isinstance(title, str) or title.strip() == "":
             raise ValueError("Task title cannot be empty.")
-        
-        # Convert Due_Date to datetime if string is provided
-        if isinstance(due_date,str):
+
+        if isinstance(due_date, str):
             try:
-                due_date = datetime.strptime(due_date, "%M-%D-%Y")
+                due_date = datetime.strptime(due_date, "%Y-%m-%d")
             except ValueError:
-                raise ValueError("Due date must be in MM-DD-YR format.")
+                raise ValueError("Due date must be in YYYY-MM-DD format.")
         elif not isinstance(due_date, datetime):
-            raise TypeError("due_date must be a datatime object or in MM-DD-YR string.")
-        
+            raise TypeError("due_date must be a datetime object or YYYY-MM-DD string.")
+
         self.id = str(uuid.uuid4())
         self.title = title
         self.due_date = due_date
-        self.completed = completed
+        self.completed = bool(completed)
 
-    # Core Behaviors 
     def mark_complete(self):
-        """Mark this task as completed."""
+        """Mark the task as completed."""
         self.completed = True
 
     def mark_incomplete(self):
-        """Mark this task as not completed."""
+        """Mark the task as not completed."""
         self.completed = False
 
-    # Editing Methods
-    def toggle_complete(self):
-        """Flip the completion status of the task."""
-        self.completed = not self.completed
-
-    def edit_title(self, new_title):
-        """
-        Change the title of the task.
+    def update_title(self, new_title):
+        """Update the task's title.
 
         Args:
-            new_title: The new title to use.
+            new_title (str): The new title for the task.
+
+        Raises:
+            ValueError: If the new title is empty.
         """
+        if not new_title or not isinstance(new_title, str):
+            raise ValueError("Title cannot be empty.")
         self.title = new_title
 
-    def edit_due_date(self, new_due_date):
-        """
-        Change the due date of the task.
+    def update_due_date(self, new_date):
+        """Update the due date of the task.
 
         Args:
-            new_due_date: The new due date in 'YYYY-MM-DD' format.
+            new_date (str or datetime): New due date.
+
+        Raises:
+            ValueError: If new_date is an improperly formatted date string.
         """
-        self.due_date = new_due_date
-
-    def edit_description(self, new_description):
-        """
-        Change the description of the task.
-
-        Args:
-            new_description: The new description text.
-        """
-        self.description = new_description
-
-    def is_overdue(self, today):
-        """
-        Check whether the task is overdue.
-
-        Args:
-            today: Today's date in 'YYYY-MM-DD' format.
-
-        Returns:
-            bool: True if the task is past its due date, False otherwise.
-        """
-        return today > self.due_date
-
-    def is_due_on(self, date_str):
-        """
-        Check whether the task is due on a specific date.
-
-        Args:
-            date_str: Date to compare in 'YYYY-MM-DD' format.
-
-        Returns:
-            bool: True if the task is due on that date, False otherwise.
-        """
-        return self.due_date == date_str
+        if isinstance(new_date, str):
+            try:
+                new_date = datetime.strptime(new_date, "%Y-%m-%d")
+            except ValueError:
+                raise ValueError("Due date must be in YYYY-MM-DD format.")
+        self.due_date = new_date
 
     def __str__(self):
-        """
-        Return a readable string representation of the task.
+        """Return a readable string representation of the task.
 
         Returns:
-            str: A formatted string with title, due date, and status.
+            str: A formatted description of the task.
         """
-        status = "Completed" if self.completed else "Incomplete"
-        return f"{self.title} - Due: {self.due_date} - {status}"
+        status = "✓ Completed" if self.completed else "✗ Pending"
+        return f"[{status}] {self.title} | Due: {self.due_date.strftime('%Y-%m-%d')} | ID: {self.id}"
+
+    def to_dict(self):
+        """Convert the task to a dictionary for saving.
+
+        Returns:
+            dict: A dictionary representing the task.
+        """
+        return {
+            "id": self.id,
+            "title": self.title,
+            "due_date": self.due_date.strftime('%Y-%m-%d'),
+            "completed": self.completed,
+        }
+
+    @staticmethod
+    def from_dict(data):
+        """Reconstruct a Task object from a dictionary.
+
+        Args:
+            data (dict): Dictionary containing task fields.
+
+        Returns:
+            Task: A reconstructed Task instance.
+        """
+        task = Task(data["title"], data["due_date"], data["completed"])
+        task.id = data["id"]
+        return task
