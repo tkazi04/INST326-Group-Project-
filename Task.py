@@ -12,7 +12,7 @@ class Task:
 
         Args:
             title (str): The title of the task.
-            due_date (str or datetime): The due date in YYYY-MM-DD format or a datetime object.
+            due_date (str or datetime): The due date in MM-DD-YYYY format or a datetime object.
             completed (bool): Whether the task is already completed.
 
         Raises:
@@ -24,11 +24,11 @@ class Task:
 
         if isinstance(due_date, str):
             try:
-                due_date = datetime.strptime(due_date, "%Y-%m-%d")
+                due_date = datetime.strptime(due_date, "%m-%d-%Y")
             except ValueError:
-                raise ValueError("Due date must be in YYYY-MM-DD format.")
+                raise ValueError("Due date must be in MM-DD-YYYY format.")
         elif not isinstance(due_date, datetime):
-            raise TypeError("due_date must be a datetime object or YYYY-MM-DD string.")
+            raise TypeError("due_date must be a datetime object or MM-DD-YYYY string.")
 
         self.id = str(uuid.uuid4())
         self.title = title
@@ -67,9 +67,9 @@ class Task:
         """
         if isinstance(new_date, str):
             try:
-                new_date = datetime.strptime(new_date, "%Y-%m-%d")
+                new_date = datetime.strptime(new_date, "%m-%d-%Y") 
             except ValueError:
-                raise ValueError("Due date must be in YYYY-MM-DD format.")
+                raise ValueError("Due date must be in MM-DD-YYYY format.")
         self.due_date = new_date
 
     def __str__(self):
@@ -79,7 +79,7 @@ class Task:
             str: A formatted description of the task.
         """
         status = "✓ Completed" if self.completed else "✗ Pending"
-        return f"[{status}] {self.title} | Due: {self.due_date.strftime('%Y-%m-%d')} | ID: {self.id}"
+        return f"[{status}] {self.title} | Due: {self.due_date.strftime('%m-%d-%Y')} | ID: {self.id}"
 
     def to_dict(self):
         """Convert the task to a dictionary for saving.
@@ -90,7 +90,7 @@ class Task:
         return {
             "id": self.id,
             "title": self.title,
-            "due_date": self.due_date.strftime('%Y-%m-%d'),
+            "due_date": self.due_date.strftime('%m-%d-%Y'),
             "completed": self.completed,
         }
 

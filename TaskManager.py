@@ -23,7 +23,7 @@ class TaskManager:
 
         Args:
             title (str): The task title.
-            due_date (str or datetime): Due date in YYYY-MM-DD format or datetime.
+            due_date (str or datetime): Due date in MM-DD-YYYY format or datetime.
 
         Returns:
             Task: The newly created Task object.
@@ -149,7 +149,7 @@ class TaskManager:
             List[Task]: Tasks due on the given date.
         """
         if isinstance(date, str):
-            date = datetime.strptime(date, "%Y-%m-%d")
+            date = datetime.strptime(date, "%m-%d-%Y")
         return [t for t in self.tasks if t.due_date.date() == date.date()]
 
     def tasks_overdue(self, as_of: Optional[datetime] = None) -> List[Task]:
