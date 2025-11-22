@@ -30,7 +30,7 @@ class Task:
         elif not isinstance(due_date, datetime):
             raise TypeError("due_date must be a datetime object or MM-DD-YYYY string.")
 
-        self.id = str(uuid.uuid4())
+        self.id = self.id = str(uuid.uuid4())[:4]
         self.title = title
         self.due_date = due_date
         self.completed = bool(completed)
