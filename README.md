@@ -3,7 +3,10 @@
   <strong>Project: Campus Task Organizer</strong>
 </div>
 
-<br> Description: 
+<div align="center">
+  <strong>Description:</strong>
+</div>
+
 <br> Our Project is a program that is designed to help students track and manage their academic needs. 
 <br> In our program we allow users to add, edit, delete assignments, and much more. 
 
@@ -20,6 +23,7 @@
 <br> mark_complete() – marks a task as finished
 <br> mark_incomplete() – marks it as not finished
 <br> toggle_complete() – flips between complete/incomplete
+
 
 
 
