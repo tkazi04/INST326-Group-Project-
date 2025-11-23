@@ -1,5 +1,7 @@
 # INST326-Group-Project-
-<br> Project: Campus Track Organizer 
+<div align="center">
+  <strong>Project: Campus Task Organizer</strong>
+</div>
 
 <br> Description: 
 <br> Our Project is a program that is designed to help students track and manage their academic needs. 
@@ -18,6 +20,7 @@
 <br> mark_complete() – marks a task as finished
 <br> mark_incomplete() – marks it as not finished
 <br> toggle_complete() – flips between complete/incomplete
+
 
 
 
