@@ -9,9 +9,3 @@
 
 <br> 2: In our program users can add, edit, delete, search, and complete tasks through a simple text-based menu interface.  
 All tasks can be saved to and loaded from a JSON file so progress is never lost.
-
-
-
-
-
-
