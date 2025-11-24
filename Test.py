@@ -56,3 +56,28 @@ def test_course_completed_pending():
     assert len(c.get_completed_tasks()) == 1
     assert len(c.get_pending_tasks()) == 1
     
+# Task Manager Test
+def test_taskmanager_add_get_task():
+    tm = TaskManager()
+    t = tm.add_task("Study", "11-05-2025")
+    assert tm.get_task(t.id) is t
+
+def test_taskmanager_edit_task():
+    tm = TaskManager()
+    t = tm.add_task("Project", "11-05-2025t", completed=True)
+    updated = tm.get_task(t.id)
+    assert updated.title == "Final Project"
+    assert updated.completed is True
+
+def test_taskmanager_save_load(tmp_path):
+    filename = tmp_path / "tasks.json"
+
+    tm = TaskManager()
+    tm.add_task("A", "11-05-2025")
+    tm.add_task("B", "11-05-2025")
+    tm.save(str(filename))
+
+    tm2 = TaskManager()
+    assert tm2.load(str(filename)) is True
+    assert len(tm2.tasks) == 2
+    
