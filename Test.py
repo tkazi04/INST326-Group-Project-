@@ -44,9 +44,10 @@ def test_course_creation():
     
 def test_course_add_and_get_task():
     c = Course("Math", "MATH101")
-    t = c.add_task("HW1", "11-05-2025
+    t = c.add_task("HW1", "2025-11-01")
+    fetched = c.get_task(t.id)
     assert fetched is t
-
+    
 def test_course_completed_pending():
     c = Course("BIO101", "BIO101")
     t1 = c.add_task("Lab", "11-05-2025")
