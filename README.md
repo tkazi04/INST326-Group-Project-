@@ -10,8 +10,9 @@
 <br> 1: Our Campus Task Organizer is a phyton based program that is designed to help help students track and manage their academic tasks. 
 <br> 2: In our program users can add, edit, delete, search, and complete tasks through a simple text-based menu interface.  
 All tasks can be saved to and loaded from a JSON file so progress is never lost.
+
 <div align="center">
-  <strong>Our 3 Classes: Task, Course, and TaskManager</strong>
+  <strong>3 Classes: Task, Course, and TaskManager</strong>
 </div>
 <div align="left">
   <light>1: Task:</light>
