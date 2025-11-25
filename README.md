@@ -11,14 +11,14 @@
 <br> 2: In our program users can add, edit, delete, search, and complete tasks through a simple text-based menu interface.  
 All tasks can be saved to and loaded from a JSON file so progress is never lost.
 <div align="center">
-  <strong>Our 3 Classes:</strong>
+  <strong>Our 3 Classes: Task, Course, and TaskManager</strong>
 </div>
-<div align="right">
-  <light>1: Task</light>
+<div align="left">
+  <light>1: Task:</light>
 </div>
-<div align="right">
-  <light>2: Course</light>
+<div align="left">
+  <light>2: Course:</light>
 </div>
-<div align="right">
-  <light>3: Task Manager</light>
+<div align="left">
+  <light>3: Task Manager:</light>
 </div>
