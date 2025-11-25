@@ -13,12 +13,12 @@ All tasks can be saved to and loaded from a JSON file so progress is never lost.
 <div align="center">
   <strong>Our 3 Classes:</strong>
 </div>
-<div align="center">
+<div align="right">
   <light>1: Task</light>
 </div>
-<div align="center">
+<div align="right">
   <light>2: Course</light>
 </div>
-<div align="center">
+<div align="right">
   <light>3: Task Manager</light>
 </div>
