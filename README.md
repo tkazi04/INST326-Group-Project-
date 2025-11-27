@@ -23,7 +23,10 @@ All tasks can be saved to and loaded from a JSON file so progress is never lost.
 <div align="left">
   <light>3: Task Manager:</light>
 </div>
-### Task.py
+
+<div align="center">
+  <strong>Task Class Description</strong>
+</div>
 
 - Defines the `Task` class, which represents a single task or assignment in the Campus Task Organizer.
 - Each task stores:
@@ -39,4 +42,16 @@ All tasks can be saved to and loaded from a JSON file so progress is never lost.
   - `update_title(new_title)` and `update_due_date(new_date)` to edit task details
 - Includes a `__str__` method to return a readable string showing the task’s status, title, due date, and ID.
 - Implements `to_dict()` and `from_dict()` so tasks can be easily saved to and loaded from JSON files.
+
+<div align="center">
+  <strong>Course Class Description</strong>
+</div>
+
+- Defines the `Course` class, which represents a single cource in the Campus Task Organizer.
+  - Each course stores:
+  - `course_name`: the name of the course
+  - `course_code`: course code such as "INST326"
+  - `instructor`: the name of professor, teacher, etc
+  - `tasks`: a list containing Task objects added to the course 
+
 
