@@ -30,7 +30,7 @@ All tasks can be saved to and loaded from a JSON file so progress is never lost.
 
 - Defines the `Task` class, which represents a single task or assignment in the Campus Task Organizer.
 - Each task stores:
-  - `id`: a unique numeric/string identifier for the task
+  - `id`: a unique numeric/string identifier for the task
   - `title`: the name of the task
   - `due_date`: the due date stored as a `datetime` object (from a `MM-DD-YYYY` string)
   - `completed`: whether the task is done or still pending
@@ -53,6 +53,7 @@ All tasks can be saved to and loaded from a JSON file so progress is never lost.
   - `course_code`: course code such as "INST326"
   - `instructor`: the name of professor, teacher, etc
   - `tasks`: a list containing Task objects added to the course 
+
 
 
 
