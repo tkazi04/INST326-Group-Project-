@@ -48,11 +48,12 @@ All tasks can be saved to and loaded from a JSON file so progress is never lost.
 </div>
 
 - Defines the `Course` class, which represents a single cource in the Campus Task Organizer.
-  - Each course stores:
+- Each course stores:
   - `course_name`: the name of the course
   - `course_code`: course code such as "INST326"
   - `instructor`: the name of professor, teacher, etc
   - `tasks`: a list containing Task objects added to the course 
+
 
 
 
