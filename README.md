@@ -55,6 +55,23 @@ All tasks can be saved to and loaded from a JSON file so progress is never lost.
   - `tasks`: a list containing Task objects added to the course 
 
 
+#Defines the 'TaskManager' class, which controls all tasks in the Campus Task Organizer. Stores a list of Task objects and manages every core operation in the program.
+
+<div align="center">
+<strong>Task Manager Class Description</strong>
+</div>
+
+- add_task()
+- get_task()
+- edit_task()
+- remove_task()
+- complete_task()
+- search_task()
+- get_completed()
+- get_pending()
+
+
+
 
 
 
