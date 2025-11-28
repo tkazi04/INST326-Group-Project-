@@ -34,12 +34,15 @@ All tasks can be saved to and loaded from a JSON file so progress is never lost.
   - `title`: the name of the task
   - `due_date`: the due date stored as a `datetime` object (from a `MM-DD-YYYY` string)
   - `completed`: whether the task is done or still pending
+    
 - Validates input when creating and updating tasks:
   - Ensures the title is not empty
   - Ensures the due date is either a valid `MM-DD-YYYY` string or a `datetime` object
+    
 - Provides methods to manage tasks, including:
   - `mark_complete()` and `mark_incomplete()` to change completion status
   - `update_title(new_title)` and `update_due_date(new_date)` to edit task details
+    
 - Includes a `__str__` method to return a readable string showing the task’s status, title, due date, and ID.
 - Implements `to_dict()` and `from_dict()` so tasks can be easily saved to and loaded from JSON files.
 
@@ -52,21 +55,33 @@ All tasks can be saved to and loaded from a JSON file so progress is never lost.
   - `course_name`: the name of the course
   - `course_code`: course code such as "INST326"
   - `instructor`: the name of professor, teacher, etc
-  - `tasks`: a list containing Task objects added to the course 
+  - `tasks`: a list containing Task objects added to the course
+ 
+-Manages tasks within a course by allowing the program to:
+  - Add new tasks to the course
+  - Retrieve a task using its ID
+  - Return all completed tasks
+  - Return all pending tasks
+
+Implements simple organization so tasks can be grouped by course when needed.
 
 <div align="center">
 <strong>Task Manager Class Description</strong>
 </div>
 
 - Defines the `TaskManager` class, which controls all tasks in the Campus Task Organizer. Stores a list of Task objects and manages every core operation in the program.
-- add_task()
-- get_task()
-- edit_task()
-- remove_task()
-- complete_task()
-- search_task()
-- get_completed()
-- get_pending()
+- Provides system-wide task management, including:
+  - `add_task`:
+  - `get_task`:
+  - `edit_task`:
+  - `remove_task`:
+  - `complete_task`:
+    
+- Offers additional features for organizing tasks:
+  - `search_task`: by keywords
+  - `get_completed` & `get_pending`: for filters
+  
+
 
 
 
