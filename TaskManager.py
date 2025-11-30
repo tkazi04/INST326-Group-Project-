@@ -16,7 +16,7 @@ class TaskManager:
     def __init__(self):
         """Initialize an empty TaskManager with an internal task list."""
         self.tasks: List[Task] = []
-        self.course = []
+        self.course = List[Course] = []
 
     # ---- Core CRUD ----
     def add_course(self, course_name, course_code, instructor=""):
