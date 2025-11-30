@@ -2,6 +2,7 @@ import json
 from datetime import datetime
 from typing import List, Optional
 from Task import Task
+from Course import Course
 
 class TaskManager:
     """
@@ -15,8 +16,14 @@ class TaskManager:
     def __init__(self):
         """Initialize an empty TaskManager with an internal task list."""
         self.tasks: List[Task] = []
+        self.course = []
 
     # ---- Core CRUD ----
+    def add_course(self, course_name, course_code, instructor=""):
+        c = Course(course_name, course_code, instructor)
+        self.course.append(c)
+        return c
+    
     def add_task(self, title: str, due_date) -> Task:
         """
         Create a new Task and add it to the manager.
