@@ -14,6 +14,7 @@ searching, filtering, sorting, and persistence of Task objects.
 """
 
 from TaskManager import TaskManager
+from Course import Course
 
 def print_menu():
     """This is main menu opition for users"""
@@ -31,7 +32,8 @@ def print_menu():
     
 def main():
     tm = TaskManager()
-
+    default_course = tm.add_course("General Tasks", "GEN101")
+    
     while True:
         print_menu()
         choice = input("Choose an option: ")
@@ -40,6 +42,7 @@ def main():
             title = input("Task title: ")
             due_date = input("Due date (MM-DD-YYYY): ")
             task = tm.add_task(title, due_date)
+            default_course.add_task(title, due_date)
             print(f"Task added with ID: {task.id}")
 
         elif choice == "2":
