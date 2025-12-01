@@ -30,6 +30,7 @@ def print_menu():
     print("=================================")
     
 def main():
+    tm = TaskManager()
     
     while True:
         print_menu()
