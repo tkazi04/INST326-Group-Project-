@@ -30,7 +30,6 @@ def print_menu():
     print("=================================")
     
 def main():
-    tm = TaskManager()
     
     while True:
         print_menu()
@@ -40,7 +39,6 @@ def main():
             title = input("Task title: ")
             due_date = input("Due date (MM-DD-YYYY): ")
             task = tm.add_task(title, due_date)
-            default_course.add_task(title, due_date)
             print(f"Task added with ID: {task.id}")
 
         elif choice == "2":
